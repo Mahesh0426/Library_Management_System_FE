@@ -1,8 +1,11 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Library Management System
+This project provides a comprehensive setup for a Library Management System using React and Vite, offering efficient book management and borrowing processes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##Key features include:
+- User authentication with role-based access (Admin, Librarian, Student)
+- Extensive book catalog with advanced search functionality
+- Streamlined borrowing and returning process
+- Admin panel for managing books, users, and requests
+- Responsive design for cross-device compatibility
