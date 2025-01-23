@@ -1,6 +1,6 @@
 
 
-# Library Management System
+# 💰 Library Management System
 This project provides a comprehensive setup for a Library Management System using React and Vite, offering efficient book management and borrowing processes.
 
 ## 🌐 Live Demo
