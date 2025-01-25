@@ -30,7 +30,6 @@ const BooksTable = (props) => {
     dispatch(getBooksAction());
   }, [dispatch]);
 
-  // delete book
   const deleteBook = (bookId) => {
     if (window.confirm("Are you sure you want to delete this book?")) {
       dispatch(deleteBookAction(bookId));
@@ -38,58 +37,65 @@ const BooksTable = (props) => {
   };
 
   return (
-    <Table striped bordered>
-      <thead>
-        <tr>
-          <th className="col-1">#</th>
-          <th className="col-2">Thumbnail</th>
-          <th className="col-2">Title</th>
-          <th className="col-5">Description</th>
-          <th className="col-2 text-center">Actions</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {books.map((book, index) => (
-          <tr key={book._id}>
-            <td>{index + 1}</td>
-            <td>
-              <img
-                src={book.thumbnail}
-                className="img-thumbnail"
-                alt="BookImage"
-              />
-            </td>
-            <td className="fw-bold">
-              {book.title} <br />
-              <div className="fst-italic">( {book.author})</div>
-            </td>
-            <td className="">{book.description}</td>
-            <td>
-              <Stack
-                direction="horizontal"
-                gap={2}
-                className="p-2 justify-content-center"
-              >
-                <Button
-                  variant="outline-light"
-                  onClick={() => openEditBookModal(book)}
-                >
-                  <BsPencil color="green" />
-                </Button>
-
-                <Button
-                  variant="outline-light"
-                  onClick={() => deleteBook(book._id)}
-                >
-                  <BsTrash color="red" />
-                </Button>
-              </Stack>
-            </td>
+    <div className="table-responsive">
+      <Table striped bordered hover className="align-middle">
+        <thead className="table-dark">
+          <tr>
+            <th className="text-center">#</th>
+            <th className="text-center">Thumbnail</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th className="text-center">Actions</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+
+        <tbody>
+          {books.map((book, index) => (
+            <tr key={book._id}>
+              <td className="text-center">{index + 1}</td>
+              <td className="text-center">
+                <img
+                  src={book.thumbnail}
+                  className="img-thumbnail rounded"
+                  alt="BookImage"
+                  style={{ maxWidth: "80px" }}
+                />
+              </td>
+              <td>
+                <strong>{book.title}</strong>
+                <div className="text-muted fst-italic">{book.author}</div>
+              </td>
+              <td className="text-truncate" style={{ maxWidth: "300px" }}>
+                {book.description}
+              </td>
+              <td>
+                <Stack
+                  direction="horizontal"
+                  gap={2}
+                  className="justify-content-center"
+                >
+                  <Button
+                    variant="outline-success"
+                    size="sm"
+                    onClick={() => openEditBookModal(book)}
+                  >
+                    <BsPencil />
+                  </Button>
+
+                  <Button
+                    variant="outline-danger"
+                    size="sm"
+                    onClick={() => deleteBook(book._id)}
+                  >
+                    <BsTrash />
+                  </Button>
+                </Stack>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </div>
   );
 };
 
